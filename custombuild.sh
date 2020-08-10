@@ -1,0 +1,1 @@
+npm run build --prod --output-hashing=none && cat dist/ang9-examples/runtime-es2015.js dist/ang9-examples/polyfills-es2015.js dist/ang9-examples/vendor-es2015.js dist/ang9-examples/main-es2015.js > preview/angularapp.js
