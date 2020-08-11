@@ -29,8 +29,8 @@ It can be set for all elements:
 ```
 or selected properties:
 ```css
-button {
-  background-color: initial;
+* {
+  color: initial;
 }
 ```
 

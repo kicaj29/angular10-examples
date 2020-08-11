@@ -1,9 +1,10 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-hello-angular-element',
   templateUrl: './hello-angular-element.component.html',
-  styleUrls: ['./hello-angular-element.component.css']
+  styleUrls: ['./hello-angular-element.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class HelloAngularElementComponent implements OnInit {
 
