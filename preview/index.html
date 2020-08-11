@@ -1,6 +1,12 @@
 <html>
   <body>
-    <app-hello-angular-element-custom-element></app-hello-angular-element-custom-element>
-	<script src="./angularapp.js"></script>
+    <app-hello-angular-element-custom-element title="Batman"></app-hello-angular-element-custom-element>
+    <script src="./angularapp.js"></script>
+    <script>
+      const component = document.querySelector('app-hello-angular-element-custom-element');
+      component.addEventListener('display', (event) => {
+        alert(event.detail);
+      });
+    </script>
   </body>
 </html>

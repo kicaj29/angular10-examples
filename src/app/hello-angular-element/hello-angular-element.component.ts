@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hello-angular-element',
@@ -7,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HelloAngularElementComponent implements OnInit {
 
+  @Input() title;
+  @Output() display = new EventEmitter();
+
   constructor() {
   }
 
   ngOnInit(): void {
+  }
+
+  showInfo() {
+    this.display.emit(`Title: ${this.title}`);
   }
 
 }

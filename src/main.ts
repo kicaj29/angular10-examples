@@ -9,8 +9,8 @@ if (environment.production) {
   enableProdMode();
 }
 
-/*platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));*/
-
-platformBrowserDynamic().bootstrapModule(HelloAngularElementModule)
+platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
+
+/*platformBrowserDynamic().bootstrapModule(HelloAngularElementModule)
+  .catch(err => console.error(err));*/
