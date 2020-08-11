@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ang10-examples": {
+    "ang9-examples": {
       "projectType": "application",
       "schematics": {},
       "root": "",

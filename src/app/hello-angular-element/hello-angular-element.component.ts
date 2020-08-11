@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class HelloAngularElementComponent implements OnInit {
 
   constructor() {
-    debugger;
   }
 
   ngOnInit(): void {
