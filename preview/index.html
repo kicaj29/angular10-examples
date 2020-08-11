@@ -1,6 +1,16 @@
 <html>
   <body>
+    <style>
+      p {
+        background-color: green;
+      }
+      button {
+        background-color: greenyellow;
+      }
+    </style>
     <app-hello-angular-element-custom-element title="Batman"></app-hello-angular-element-custom-element>
+    <p>I am directly in index.html</p>
+    <button>I am directly in index.html</button>
     <script src="./angularapp.js"></script>
     <script>
       const component = document.querySelector('app-hello-angular-element-custom-element');

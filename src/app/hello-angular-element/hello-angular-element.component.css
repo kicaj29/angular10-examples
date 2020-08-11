@@ -1,0 +1,10 @@
+/** {
+  all:initial;
+}*/
+p {
+  background-color:red;
+}
+button {
+  background-color: initial;
+}
+
