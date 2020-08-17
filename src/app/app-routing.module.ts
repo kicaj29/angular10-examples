@@ -9,6 +9,10 @@ const routes: Routes = [
     redirectTo: 'next-example'
   },
   {
+    path: 'graphql',
+    loadChildren: () => import('./graphql/graphql.module').then(m => m.GraphqlModule)
+  },
+  {
     path: 'next-example',
     loadChildren: () => import('./next-example/next-example.module').then(m => m.NextExampleModule)
   },
