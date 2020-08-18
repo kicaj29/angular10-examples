@@ -184,7 +184,9 @@ Apollo services are not stored in the repo so after cloning to run the app you h
   ```
   npm run gql:codegen
   ```
-  It will create a new file [types.graphql-gen.ts](./src/generated/types.graphql-gen.ts).
+  It will create a new file ```types.graphql-gen.ts```.
+  >NOTE: because this file is generated from the schema and from ```*.graphql``` files it is not stored in the repo.
+  
   On the bottom of this file is generated angular apollo service:
   ```ts
   @Injectable({
