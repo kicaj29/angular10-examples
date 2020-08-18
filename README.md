@@ -38,3 +38,4 @@ https://stackoverflow.com/questions/49709676/light-dom-style-leaking-into-shadow
 https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-css-chrome   
 
 
+# GraphQL (apollo graphql)
