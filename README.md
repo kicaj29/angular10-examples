@@ -8,12 +8,11 @@
     - [Command for copying graphql schema locally](#command-for-copying-graphql-schema-locally)
     - [Add GraphQL Codegen](#add-graphql-codegen)
     - [Initialize graphql-codegen](#initialize-graphql-codegen)
-    - [Install npm-run-all](#install-npm-run-all)
-    - [Generate TypeScript apollo service based on local schema](#generate-typescript-apollo-service-based-on-local-schema)
-    - [Use generated angular apollo service](#use-generated-angular-apollo-service)
-    - [Add types.graphql-gen.ts to ```.gitignore``` file.](#add-typesgraphql-gents-to-gitignore-file)
-    - [Automation for generating apollo services *.graphql-gen.ts](#automation-for-generating-apollo-services-graphql-gents)
-    - [Storing apollo services in dedicated file next to ```*.graphql file```.](#storing-apollo-services-in-dedicated-file-next-to-graphql-file)
+  - [Generate TypeScript apollo service based on local schema](#generate-typescript-apollo-service-based-on-local-schema)
+  - [Use generated angular apollo service](#use-generated-angular-apollo-service)
+  - [Add types.graphql-gen.ts to ```.gitignore``` file.](#add-typesgraphql-gents-to-gitignore-file)
+  - [Automation for generating apollo services *.graphql-gen.ts](#automation-for-generating-apollo-services-graphql-gents)
+  - [Storing apollo services in dedicated file next to ```*.graphql file```.](#storing-apollo-services-in-dedicated-file-next-to-graphql-file)
 
 
 # Angular elements - custom elements
@@ -155,13 +154,8 @@ Apollo services are not stored in the repo so after cloning to run the app you h
   "@graphql-codegen/typescript-apollo-angular": "1.13.1"
   ```
   Next ```npm install``` has to be run to install these 3 new packages.
-### Install [npm-run-all](https://github.com/mysticatea/npm-run-all)
-```
-npm install npm-run-all -D
-```
-Version 4.1.5 has been installed.
 
-### Generate TypeScript apollo service based on local schema
+## Generate TypeScript apollo service based on local schema
 
 * Create sample graphql with a query to later generate for this apollo service [graphql.component.graphql](./src/app/graphql/graphql.component.graphql).
   
@@ -200,23 +194,30 @@ Version 4.1.5 has been installed.
     document = UsersDocument;    
   }
   ```
-### Use generated angular apollo service
+## Use generated angular apollo service
 
 In [graphql.component.ts](./src/app/graphql/graphql.component.ts) inject generated service and render its data.   
 
 Run the app to see that it is working fine.
 
-### Add types.graphql-gen.ts to ```.gitignore``` file.
+## Add types.graphql-gen.ts to ```.gitignore``` file.
 
 It is good practice to keep all generated type script files ```*.graphql-gen.ts``` in ```.gitignore```. Then typical workflow for CI works like this:
 * developer on demand updates [schema.graphql](./schema.graphql). 
 * developer runs ```npm run gql:codegen``` to generate new angular apollo services based on the new schema. If everything on local branch works fine then updated schema can be pushed to the remote branch.
 * CI once again generate all ```*.graphql-gen.ts``` (because they do not exist in the repo) and in this way can make sure that everything compiles and all possible tests still pass with the new updated schema.
 
-### Automation for generating apollo services *.graphql-gen.ts
+## Automation for generating apollo services *.graphql-gen.ts
 
 If needed angular apollo services can be generated automatically when new ```*.graphql``` file is created or existing file is updated or deleted.
 The following commands make it possible:
+
+```
+npm install npm-run-all -D
+```
+Version 4.1.5 has been installed.
+
+Next in ```package.json``` new scripts can be added:
 
 ```
 "start:ng": "ng serve",
@@ -224,7 +225,7 @@ The following commands make it possible:
 "start": "run-p start:ng gql:codegen:watch"
 ```
 
-### Storing apollo services in dedicated file next to ```*.graphql file```.
+## Storing apollo services in dedicated file next to ```*.graphql file```.
 
 ```
 npm install @graphql-codegen/near-operation-file-preset@1.13.1 -D
