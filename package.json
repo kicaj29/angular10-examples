@@ -42,6 +42,7 @@
     "@angular/compiler-cli": "~9.1.0",
     "@angular/language-service": "~9.1.0",
     "@graphql-codegen/cli": "^1.13.1",
+    "@graphql-codegen/near-operation-file-preset": "^1.13.1",
     "@graphql-codegen/typescript": "1.13.1",
     "@graphql-codegen/typescript-apollo-angular": "1.13.1",
     "@graphql-codegen/typescript-operations": "1.13.1",

@@ -202,4 +202,33 @@ The following commands make it possible:
 "start": "run-p start:ng gql:codegen:watch"
 ```
 
+### Storing apollo services in dedicated file next to ```*.graphql file```.
 
+```
+npm install @graphql-codegen/near-operation-file-preset@1.13.1 -D
+```
+
+Next update codegen.yml:
+
+```yaml
+overwrite: true
+schema: "schema.graphql"
+documents: "src/**/*.graphql"
+generates:
+  src/generated/types.graphql-gen.ts:
+    plugins:
+    - "typescript"
+  src/generated:
+    preset: near-operation-file
+    presetConfig:
+      extension: .graphql-gen.ts
+      baseTypesPath: types.graphql-gen.ts
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-apollo-angular"
+```
+
+Next run again ```npm run gql:codegen``` to see that now angular apollo services are stored in separated files.
+
+For example now [graphql.component.graphql](./src/app/graphql/graphql.component.graphql) and [graphql.component.graphql-gen.ts](./src/app/graphql/graphql.component.graphql-gen.ts) are next to each other and the service is generated on the bottom of [graphql.component.graphql-gen.ts](./src/app/graphql/graphql.component.graphql-gen.ts).

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { UsersGQL } from 'src/generated/types.graphql-gen';
+import { UsersGQL } from './graphql.component.graphql-gen';
 import { map } from 'rxjs/operators';
 
 @Component({
