@@ -138,3 +138,63 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
 npm install npm-run-all -D
 ```
 Version 4.1.5 has been installed.
+
+### Generate TypeScript apollo service based on local schema
+
+* Create sample graphql with a query to later generate for this apollo service [graphql.component.graphql](./src/app/graphql/graphql.component.graphql).
+  
+  ```
+  query Users {
+    users {
+      data {
+        name
+      }
+    }
+  }
+  ```
+  >NOTE: Plugin [Type Script Apollo Angular](https://graphql-code-generator.com/docs/plugins/typescript-apollo-angular) requires a little bit different syntax in *.graphql files then in https://graphqlzero.almansi.me/api. For example in the file we have to specify type of operation - here it is **query** but in the playground view the query looks like this:
+  ```
+  {
+    users {
+      data {
+        name
+      }
+    }
+  }
+  ```
+
+* Generate apollo service.   
+  Run: 
+  ```
+  npm run gql:codegen
+  ```
+  It will create a new file [types.graphql-gen.ts](./src/generated/types.graphql-gen.ts).
+  On the bottom of this file is generated angular apollo service:
+  ```ts
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class UsersGQL extends Apollo.Query<UsersQuery,         UsersQueryVariables> {
+    document = UsersDocument;    
+  }
+  ```
+### Use generated angular apollo service
+
+In [graphql.component.ts](./src/app/graphql/graphql.component.ts) inject generated service and render its data.   
+
+Run the app to see that it is working fine.
+
+### Add [types.graphql-gen.ts](./src/generated/types.graphql-gen.ts) to ```.gitignore``` file.
+
+It is good practice to keep all generated type script files ```*graphql-gen.ts``` in ```.gitignore```. Then typical workflow for CI works like this:
+* developer on demand updates [schema.graphql](./schema.graphql). 
+* developer runs ```npm run gql:codegen``` to generate new angular apollo services based on the new schema. If everything on local branch works fine then updated schema can be pushed to the remote branch.
+* CI once again generate all ```*graphql-gen.ts``` (because they do not exist in the repo) and in this way can make sure that everything compiles and all possible tests still pass with the new updated schema.
+
+```
+"gql:codegen:watch": "graphql-codegen --watch"
+```
+
+```
+"start": "run-p start:ng gql:codegen:watch",
+```

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { UsersGQL } from 'src/generated/types.graphql-gen';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-graphql',
@@ -7,7 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GraphqlComponent implements OnInit {
 
-  constructor() { }
+  usersName$: Observable<string[]>;
+
+  constructor(userNameService: UsersGQL) {
+    this.usersName$ = userNameService.fetch({}).pipe(
+      map(result => result.data.users.data.map(user => user.name)),
+    );
+  }
 
   ngOnInit(): void {
   }

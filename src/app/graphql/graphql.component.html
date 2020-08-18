@@ -1,1 +1,5 @@
 <p>graphql!</p>
+
+<div *ngFor="let userName of usersName$ | async">
+  {{ userName }}
+</div>

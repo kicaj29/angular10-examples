@@ -10,7 +10,8 @@
     "e2e": "ng e2e",
     "build:component": "ng build --prod --output-hashing none && node concatenate.js",
     "gql:update-schema": "graphql get-schema -e default",
-    "gql:codegen": "graphql-codegen --config codegen.yml"
+    "gql:codegen": "graphql-codegen --config codegen.yml",
+    "gql:codegen:watch": "graphql-codegen --watch"
   },
   "private": true,
   "dependencies": {
