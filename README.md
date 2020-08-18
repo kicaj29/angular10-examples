@@ -1,3 +1,21 @@
+- [Angular elements - custom elements](#angular-elements---custom-elements)
+- [GraphQL (apollo graphql) for https://graphqlzero.almansi.me/api](#graphql-apollo-graphql-for-httpsgraphqlzeroalmansimeapi)
+  - [Introduction](#introduction)
+  - [Project initialization](#project-initialization)
+    - [Add apollo client](#add-apollo-client)
+    - [Add graphql-cli](#add-graphql-cli)
+    - [Generate .graphqlconfig file](#generate-graphqlconfig-file)
+    - [Command for copying graphql schema locally](#command-for-copying-graphql-schema-locally)
+    - [Add GraphQL Codegen](#add-graphql-codegen)
+    - [Initialize graphql-codegen](#initialize-graphql-codegen)
+    - [Install npm-run-all](#install-npm-run-all)
+    - [Generate TypeScript apollo service based on local schema](#generate-typescript-apollo-service-based-on-local-schema)
+    - [Use generated angular apollo service](#use-generated-angular-apollo-service)
+    - [Add types.graphql-gen.ts to ```.gitignore``` file.](#add-typesgraphql-gents-to-gitignore-file)
+    - [Automation for generating apollo services *.graphql-gen.ts](#automation-for-generating-apollo-services-graphql-gents)
+    - [Storing apollo services in dedicated file next to ```*.graphql file```.](#storing-apollo-services-in-dedicated-file-next-to-graphql-file)
+
+
 # Angular elements - custom elements
 https://blog.bitsrc.io/using-angular-elements-why-and-how-part-1-35f7fd4f0457   
 https://www.youtube.com/watch?v=Z1gLFPLVJjY&t=4s   
@@ -38,7 +56,11 @@ https://stackoverflow.com/questions/49709676/light-dom-style-leaking-into-shadow
 https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-css-chrome   
 
 
-# GraphQL (apollo graphql)
+# GraphQL (apollo graphql) for https://graphqlzero.almansi.me/api
+
+## Introduction
+In the following chapters are explained steps that have to be executed to start using Angular Apollo for GraphQL.   
+Apollo services are not stored in the repo so after cloning to run the app you have to generate them using ```npm start gql:codegen```.
 
 ## Project initialization
 
