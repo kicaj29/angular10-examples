@@ -186,16 +186,20 @@ Run the app to see that it is working fine.
 
 ### Add types.graphql-gen.ts to ```.gitignore``` file.
 
-It is good practice to keep all generated type script files ```*graphql-gen.ts``` in ```.gitignore```. Then typical workflow for CI works like this:
+It is good practice to keep all generated type script files ```*.graphql-gen.ts``` in ```.gitignore```. Then typical workflow for CI works like this:
 * developer on demand updates [schema.graphql](./schema.graphql). 
 * developer runs ```npm run gql:codegen``` to generate new angular apollo services based on the new schema. If everything on local branch works fine then updated schema can be pushed to the remote branch.
-* CI once again generate all ```*graphql-gen.ts``` (because they do not exist in the repo) and in this way can make sure that everything compiles and all possible tests still pass with the new updated schema.
-* 
+* CI once again generate all ```*.graphql-gen.ts``` (because they do not exist in the repo) and in this way can make sure that everything compiles and all possible tests still pass with the new updated schema.
+
+### Automation for generating apollo services *.graphql-gen.ts
+
+If needed angular apollo services can be generated automatically when new ```*.graphql``` file is created or existing file is updated or deleted.
+The following commands make it possible:
 
 ```
+"start:ng": "ng serve",
 "gql:codegen:watch": "graphql-codegen --watch"
+"start": "run-p start:ng gql:codegen:watch"
 ```
 
-```
-"start": "run-p start:ng gql:codegen:watch",
-```
+
