@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:component": "ng build --prod --output-hashing none && node concatenate.js"
+    "build:component": "ng build --prod --output-hashing none && node concatenate.js",
+    "gql:update-schema": "graphql get-schema -e default"
   },
   "private": true,
   "dependencies": {

@@ -87,3 +87,9 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
   ? Is this ok? Yes
   PS D:\GitHub\kicaj29\angular9-examples>
   ```
+* Command for copying graphql schema locally
+  ```
+  "gql:update-schema": "graphql get-schema -e default"
+  ```
+  It will create new file with the schema [schema.graphql](schema.graphql).
+* 
