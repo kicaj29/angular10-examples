@@ -100,4 +100,37 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
   ```
   npm install @graphql-codegen/cli@1.13.1 -D
   ```
+* Initialize graphql-codegen
+  ```
+  PS D:\GitHub\kicaj29\angular9-examples> npx graphql-codegen init
+
+    Welcome to GraphQL Code Generator!
+    Answer few questions and we will setup everything for you.
+
+  ? What type of application are you building? Application built with Angular
+  ? Where is your schema?: (path or url) schema.graphql
+  ? Where are your operations and fragments?: src/**/*.graphql
+  ? Pick plugins: TypeScript (required by other typescript plugins), TypeScript Operations (operations and fragments), TypeScript Apollo Angular (typed GQL services)
+  ? Where to write the output: src/generated/types.graphql-gen.ts
+  ? Do you want to generate an introspection file? No
+  ? How to name the config file? codegen.yml
+  ? What script in package.json should run the codegen? gql:codegen
+
+    Config file generated at codegen.yml
+
+      $ npm install
+
+    To install the plugins.
+
+      $ npm run gql:codegen
+
+    To run GraphQL Code Generator.
+  ```
+  It will create a new command ```gql:codegen``` in ```package.json``` and will add new devDependencies
+  ```
+  "@graphql-codegen/typescript": "1.13.1",
+  "@graphql-codegen/typescript-operations": "1.13.1",
+  "@graphql-codegen/typescript-apollo-angular": "1.13.1"
+  ```
+  Next ```npm install``` has to be run to install these 3 new packages.
 * 
