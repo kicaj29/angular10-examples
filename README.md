@@ -92,4 +92,12 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
   "gql:update-schema": "graphql get-schema -e default"
   ```
   It will create new file with the schema [schema.graphql](schema.graphql).
+  There are 2 reasons why it makes sense copy schema locally:   
+  * CI pipeline does not depend on external server resource to auto generate the schema
+  * if the schema changes during code review we can easily see the changes
+* Add [GraphQL Codegen](https://graphql-code-generator.com)   
+  Plugin [Type Script Apollo Angular](https://graphql-code-generator.com/docs/plugins/typescript-apollo-angular) allows generate code for apollo services which next can be used in DI mechanism.
+  ```
+  npm install @graphql-codegen/cli@1.13.1 -D
+  ```
 * 
