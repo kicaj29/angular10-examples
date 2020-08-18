@@ -58,4 +58,8 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
   ```
   >NOTE: I used version **1.9.1** because the newest available version (2.0.3) had some issues with copying graphql schema.
 
-  
+* Add [graphql-cli](https://github.com/Urigo/graphql-cli)
+  ```
+  npm install graphql-cli@3.0.14 -D
+  ```
+* 
