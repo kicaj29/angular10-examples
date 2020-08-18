@@ -42,7 +42,7 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
 
 ## Project initialization
 
-* Add [apollo client](https://www.apollographql.com/docs/angular/basics/setup/)   
+### Add [apollo client](https://www.apollographql.com/docs/angular/basics/setup/)   
   ```
   ng add apollo-angular@1.9.1
   ```
@@ -58,11 +58,11 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
   ```
   >NOTE: I used version **1.9.1** because the newest available version (2.0.3) had some issues with copying graphql schema.
 
-* Add [graphql-cli](https://github.com/Urigo/graphql-cli)
+### Add [graphql-cli](https://github.com/Urigo/graphql-cli)
   ```
   npm install graphql-cli@3.0.14 -D
   ```
-* Generate [.graphqlconfig](./.graphqlconfig) file
+### Generate [.graphqlconfig](./.graphqlconfig) file
   ```
   PS D:\GitHub\kicaj29\angular9-examples> npx graphql init
   ? Enter project name (Enter to skip):
@@ -87,7 +87,7 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
   ? Is this ok? Yes
   PS D:\GitHub\kicaj29\angular9-examples>
   ```
-* Command for copying graphql schema locally
+### Command for copying graphql schema locally
   ```
   "gql:update-schema": "graphql get-schema -e default"
   ```
@@ -95,12 +95,12 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
   There are 2 reasons why it makes sense copy schema locally:   
   * CI pipeline does not depend on external server resource to auto generate the schema
   * if the schema changes during code review we can easily see the changes
-* Add [GraphQL Codegen](https://graphql-code-generator.com)   
+### Add [GraphQL Codegen](https://graphql-code-generator.com)   
   Plugin [Type Script Apollo Angular](https://graphql-code-generator.com/docs/plugins/typescript-apollo-angular) allows generate code for apollo services which next can be used in DI mechanism.
   ```
   npm install @graphql-codegen/cli@1.13.1 -D
   ```
-* Initialize graphql-codegen
+### Initialize graphql-codegen
   ```
   PS D:\GitHub\kicaj29\angular9-examples> npx graphql-codegen init
 
@@ -133,4 +133,8 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
   "@graphql-codegen/typescript-apollo-angular": "1.13.1"
   ```
   Next ```npm install``` has to be run to install these 3 new packages.
-* 
+### Install [npm-run-all](https://github.com/mysticatea/npm-run-all)
+```
+npm install npm-run-all -D
+```
+Version 4.1.5 has been installed.
