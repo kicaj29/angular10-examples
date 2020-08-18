@@ -62,4 +62,28 @@ https://stackoverflow.com/questions/47189985/shadow-dom-inheriting-parent-page-c
   ```
   npm install graphql-cli@3.0.14 -D
   ```
-* 
+* Generate [.graphqlconfig](./.graphqlconfig) file
+  ```
+  PS D:\GitHub\kicaj29\angular9-examples> npx graphql init
+  ? Enter project name (Enter to skip):
+  ? Local schema file path: schema.graphql
+  ? Endpoint URL (Enter to skip): https://graphqlzero.almansi.me/api
+  ? Name of this endpoint, for e.g. default, dev, prod: default
+  ? Subscription URL (Enter to skip):
+  ? Do you want to add other endpoints? No
+  ? What format do you want to save your config in? JSON
+
+  About to write to D:\GitHub\kicaj29\angular9-examples\.graphqlconfig:
+
+  {
+    "schemaPath": "schema.graphql",
+    "extensions": {
+      "endpoints": {
+        "default": "https://graphqlzero.almansi.me/api"
+      }
+    }
+  }
+
+  ? Is this ok? Yes
+  PS D:\GitHub\kicaj29\angular9-examples>
+  ```
