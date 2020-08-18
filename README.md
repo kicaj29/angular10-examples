@@ -256,4 +256,4 @@ generates:
 
 Next run again ```npm run gql:codegen``` to see that now angular apollo services are stored in separated files.
 
-For example now [graphql.component.graphql](./src/app/graphql/graphql.component.graphql) and [graphql.component.graphql-gen.ts](./src/app/graphql/graphql.component.graphql-gen.ts) are next to each other and the service is generated on the bottom of [graphql.component.graphql-gen.ts](./src/app/graphql/graphql.component.graphql-gen.ts).
+For example now [graphql.component.graphql](./src/app/graphql/graphql.component.graphql) and ```graphql.component.graphql-gen.ts``` are next to each other and the service is generated on the bottom of ```graphql.component.graphql-gen.ts```.
