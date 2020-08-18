@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloAngularElementComponent } from './hello-angular-element/hello-angular-element.component';
 import { HelloAngularElementModule } from './hello-angular-element/hello-angular-element.module';
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { HelloAngularElementModule } from './hello-angular-element/hello-angular
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HelloAngularElementModule
+    HelloAngularElementModule,
+    GraphQLModule,
+    HttpClientModule
   ],
   entryComponents: [HelloAngularElementComponent],
   providers: [],
