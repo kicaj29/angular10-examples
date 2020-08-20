@@ -79,7 +79,7 @@ Apollo services are not stored in the repo so after cloning to run the app you h
   ```
   >NOTE: I used version **1.9.1** because the newest available version (2.0.3) had some issues with copying graphql schema.
 
-### Add [graphql-cli](https://github.com/Urigo/graphql-cli)
+### Add [graphql-cli](https://github.com/Urigo/graphql-cli/tree/v3.0.14)
   ```
   npm install graphql-cli@3.0.14 -D
   ```
