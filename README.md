@@ -363,7 +363,7 @@ Setting the context does not hide context of the component for the template:
 [template-container.component.ts](./src/app/templates/template-container.component.ts).
 
 ### implicit reference in structural directive
-[appMyNgIf](./src/app/templates/my-ng-if-directive.component.ts)   
+[appMyNgIf](./src/app/templates/my-ng-if-directive.ts)   
 [appRange](./src/app/templates/range.directive.ts)
 
 Another example:
