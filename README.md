@@ -21,6 +21,7 @@
   - [ng-template directive - reference](#ng-template-directive---reference)
     - [reference via @ViewChild](#reference-via-viewchild)
     - [passing as input](#passing-as-input)
+    - [implicit reference in structural directive](#implicit-reference-in-structural-directive)
 
 
 # Angular elements - custom elements
@@ -270,6 +271,8 @@ For example now [graphql.component.graphql](./src/app/graphql/graphql.component.
 
 Articles:
 * [templates](https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/)
+* [the-power-of-structural-directives (own ngIf)](https://netbasal.com/the-power-of-structural-directives-in-angular-bfe4d8c44fb1)
+* 
 
 ## ng-template directive
 The ```<ng-template>``` is an Angular element for rendering HTML. It is never displayed directly. In fact, before rendering the view, Angular replaces the ```<ng-template>``` and its contents with a comment.
@@ -358,4 +361,48 @@ Setting the context does not hide context of the component for the template:
 <app-template-container [headerTemplate]="buttons"></app-template-container>
 ```
 [template-container.component.ts](./src/app/templates/template-container.component.ts).
+
+### implicit reference in structural directive
+[appMyNgIf](./src/app/templates/my-ng-if-directive.component.ts)   
+[appRange](./src/app/templates/range.directive.ts)
+
+Another example:
+```ts
+@Directive({selector: '[ifRole]'})
+export class IfRoleDirective {
+  user$ : Subscription;
+  @Input("ifRole") roleName : string;
+
+  constructor( private templateRef : TemplateRef<any>,
+               private viewContainer : ViewContainerRef,
+               private authService : AuthService ) {
+  }
+
+  ngOnInit() {
+    this.user$ = this.authService.user
+      .do(() => this.viewContainer.clear())
+      .filter(user => user.role === this.roleName).subscribe(() => {
+        this.viewContainer.createEmbeddedView(this.templateRef);
+      });
+  }
+
+  ngOnDestroy() {
+    this.user$.unsubscribe();
+  }
+}
+```
+Usage:
+```
+<div *ifRole="'admin'">
+  Only for Admin
+</div>
+
+<div *ifRole="'client'">
+  Only for Client
+</div>
+
+<div *ifRole="'editor'">
+  Only for Editor
+</div>
+```
 

@@ -36,4 +36,15 @@
 <br>
 <br>
 <br>
+<div *appMyNgIf="flag">
+  <span>I will be transformed to ng-template</span>
+</div>
 <button (click)="inspectTemplateRef()">inspect template ref</button>
+<br>
+<br>
+<h1>Your age:</h1>
+<select>
+  <ng-container *appRange="[18, 80]; let num">
+    <option [value]="num">{{num}}</option>
+  </ng-container>
+</select>

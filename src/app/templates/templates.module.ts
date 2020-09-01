@@ -5,11 +5,15 @@ import { TemplatesComponent } from './templates.component';
 import { CommonModule } from '@angular/common';
 import { routing } from './templates.routing';
 import { TemplateContainerComponent } from './template-container.component';
+import { MyNgIfDirective } from './my-ng-if.directive';
+import { RangeDirective } from './range.directive';
 
 @NgModule({
   declarations: [
     TemplatesComponent,
-    TemplateContainerComponent
+    TemplateContainerComponent,
+    MyNgIfDirective,
+    RangeDirective
   ],
   imports: [
     routing,
