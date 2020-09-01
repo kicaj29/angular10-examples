@@ -1,0 +1,39 @@
+<p>templates</p>
+<button (click)="changeFlag()">change flag</button>
+<br>
+<div *ngIf="flag; then div1 else div2"></div>
+<br>
+<div *ngIf="flag; then buttons"></div>
+
+<ng-template #div1>
+  Div one
+</ng-template>
+<ng-template #div2>
+  Div two
+</ng-template>
+
+<ng-template #buttons>
+  <button class="tab-button"
+          (click)="login()">{{loginText}}</button>
+  <button class="tab-button"
+          (click)="signUp()">{{signUpText}}</button>
+</ng-template>
+<br>
+
+<ng-template #userView let-name="name" let-surname="surname">
+  <span>Name: {{name}}</span>
+  <br>
+  <span>Second name: {{surname}}</span>
+  <br>
+  <button class="tab-button" (click)="clickMe()">I have my context and still can access my component context</button>
+</ng-template>
+
+<ng-container *ngTemplateOutlet="buttons"></ng-container>
+<br>
+<ng-container *ngTemplateOutlet="userView; context: ctx"></ng-container>
+<br>
+<app-template-container [headerTemplate]="buttons"></app-template-container>
+<br>
+<br>
+<br>
+<button (click)="inspectTemplateRef()">inspect template ref</button>

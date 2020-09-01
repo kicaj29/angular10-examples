@@ -13,6 +13,14 @@
   - [Add types.graphql-gen.ts to ```.gitignore``` file.](#add-typesgraphql-gents-to-gitignore-file)
   - [Automation for generating apollo services *.graphql-gen.ts](#automation-for-generating-apollo-services-graphql-gents)
   - [Storing apollo services in dedicated file next to ```*.graphql file```.](#storing-apollo-services-in-dedicated-file-next-to-graphql-file)
+- [templates: ng-template, ng-container, ngTemplateOutlet](#templates-ng-template-ng-container-ngtemplateoutlet)
+  - [ng-template directive](#ng-template-directive)
+  - [ng-container directive](#ng-container-directive)
+  - [ngTemplateOutlet directive](#ngtemplateoutlet-directive)
+  - [ng-template directive - context](#ng-template-directive---context)
+  - [ng-template directive - reference](#ng-template-directive---reference)
+    - [reference via @ViewChild](#reference-via-viewchild)
+    - [passing as input](#passing-as-input)
 
 
 # Angular elements - custom elements
@@ -257,3 +265,97 @@ generates:
 Next run again ```npm run gql:codegen``` to see that now angular apollo services are stored in separated files.
 
 For example now [graphql.component.graphql](./src/app/graphql/graphql.component.graphql) and ```graphql.component.graphql-gen.ts``` are next to each other and the service is generated on the bottom of ```graphql.component.graphql-gen.ts```.
+
+# templates: ng-template, ng-container, ngTemplateOutlet
+
+Articles:
+* [templates](https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/)
+
+## ng-template directive
+The ```<ng-template>``` is an Angular element for rendering HTML. It is never displayed directly. In fact, before rendering the view, Angular replaces the ```<ng-template>``` and its contents with a comment.
+
+```<ng-template>``` is the template element which appears on DOM when some condition is true. This condition is described by the structural directives for example ```*ngIf```, ```*ngFor```, etc. Structural directives remove or add elements from the DOM. Instead of hiding an element, they completely remove it from the DOM.   
+
+Template must be defined as a part of component.
+
+[Examples](./src/app/templates/templates.component.html).
+
+Articles:
+* [Know about ng-template and its Usage](https://medium.com/stackavenue/know-about-ng-template-and-its-usage-503d88cb838)
+
+## ng-container directive
+
+This directive can be used to play with multiple structural directives.
+For example such code will not work:
+```html
+<div class="lesson" *ngIf="lessons" 
+       *ngFor="let lesson of lessons">
+    <div class="lesson-detail">
+        {{lesson | json}}
+    </div>
+</div> 
+```
+```
+Uncaught Error: Template parse errors:
+Can't have multiple template bindings on one element. Use only one attribute 
+named 'template' or prefixed with *
+```
+We could add dedicated ```div``` for ```ngIf``` but then we have extra ```div``` in generated html. To avoid this div we can use ```ng-container```.
+
+```html
+<ng-container *ngIf="lessons">
+    <div class="lesson" *ngFor="let lesson of lessons">
+        <div class="lesson-detail">
+            {{lesson | json}}
+        </div>
+    </div>
+</ng-container>
+```
+
+There is another major use case for the ```ng-container``` directive: it can also provide a placeholder for injecting a template dynamically into the page. See next chapter.
+
+## ngTemplateOutlet directive
+
+Together with ```ng-container``` and ```ngTemplateOutlet``` we can load a template in any place without using conditions.
+
+```html
+<ng-container *ngTemplateOutlet="buttons"></ng-container>
+```
+
+## ng-template directive - context
+
+By default every template have access to everything what is available in its component but using ```ngTemplateOutlet``` we can defined own context for the template.
+
+Setting the context does not hide context of the component for the template:
+
+```html
+<ng-template #userView let-name="name" let-surname="surname">
+  <span>Name: {{name}}</span>
+  <br>
+  <span>Second name: {{surname}}</span>
+  <br>
+  <button class="tab-button" (click)="clickMe()">I have my context and still can access my component context</button>
+</ng-template>
+```
+```html
+<ng-container *ngTemplateOutlet="userView; context: ctx"></ng-container>
+```
+
+>NOTE: template has access to context of component that contains ```ng-template```. It means that we can defined ```ng-template``` in component A and render it in component B. Then all processing executed by the template (e.g. handling events) will be executed in context of component A.
+[Example](./src/app/templates/template-container.component.ts).
+
+## ng-template directive - reference
+
+### reference via @ViewChild
+
+```ts
+  @ViewChild('userView')
+  private userViewTemplate: TemplateRef<any>;
+```
+
+### passing as input
+```html
+<app-template-container [headerTemplate]="buttons"></app-template-container>
+```
+[template-container.component.ts](./src/app/templates/template-container.component.ts).
+

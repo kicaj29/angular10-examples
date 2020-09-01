@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: () => import('./graphql/graphql.module').then(m => m.GraphqlModule)
   },
   {
+    path: 'templates',
+    loadChildren: () => import('./templates/templates.module').then(m => m.TemplatesModule)
+  },
+  {
     path: 'next-example',
     loadChildren: () => import('./next-example/next-example.module').then(m => m.NextExampleModule)
   },
