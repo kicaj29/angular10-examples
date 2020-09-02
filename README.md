@@ -13,7 +13,7 @@
   - [Add types.graphql-gen.ts to ```.gitignore``` file.](#add-typesgraphql-gents-to-gitignore-file)
   - [Automation for generating apollo services *.graphql-gen.ts](#automation-for-generating-apollo-services-graphql-gents)
   - [Storing apollo services in dedicated file next to ```*.graphql file```.](#storing-apollo-services-in-dedicated-file-next-to-graphql-file)
-- [templates: ng-template, ng-container, ngTemplateOutlet](#templates-ng-template-ng-container-ngtemplateoutlet)
+- [templates: ng-template, ng-container, ngTemplateOutlet, ngContent](#templates-ng-template-ng-container-ngtemplateoutlet-ngcontent)
   - [ng-template directive](#ng-template-directive)
   - [ng-container directive](#ng-container-directive)
   - [ngTemplateOutlet directive](#ngtemplateoutlet-directive)
@@ -22,6 +22,7 @@
     - [reference via @ViewChild](#reference-via-viewchild)
     - [passing as input](#passing-as-input)
     - [implicit reference in structural directive](#implicit-reference-in-structural-directive)
+  - [ngContent directive](#ngcontent-directive)
 
 
 # Angular elements - custom elements
@@ -267,12 +268,13 @@ Next run again ```npm run gql:codegen``` to see that now angular apollo services
 
 For example now [graphql.component.graphql](./src/app/graphql/graphql.component.graphql) and ```graphql.component.graphql-gen.ts``` are next to each other and the service is generated on the bottom of ```graphql.component.graphql-gen.ts```.
 
-# templates: ng-template, ng-container, ngTemplateOutlet
+# templates: ng-template, ng-container, ngTemplateOutlet, ngContent
 
 Articles:
 * [templates](https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/)
 * [the-power-of-structural-directives (own ngIf)](https://netbasal.com/the-power-of-structural-directives-in-angular-bfe4d8c44fb1)
 * [Angular Access inner component of ng-template](https://stackoverflow.com/questions/43764536/angular-access-inner-component-of-ng-template)
+* [angulars-content-projection-trap-and-why-you-should-consider-using-template-outlet-instead](https://medium.com/@pietmichal/angulars-content-projection-trap-and-why-you-should-consider-using-template-outlet-instead-cc3c4cad87c9)
 
 ## ng-template directive
 The ```<ng-template>``` is an Angular element for rendering HTML. It is never displayed directly. In fact, before rendering the view, Angular replaces the ```<ng-template>``` and its contents with a comment.
@@ -406,4 +408,13 @@ Usage:
   Only for Editor
 </div>
 ```
+
+## ngContent directive
+```ngContent``` directive allows inject component into other component in selected slot defined by ```ng-content``` tag. It is similar to using ```ngTemplateOutlet``` but there are 2 differences:
+* ```ng-content``` works with components and ```ngTemplateOutlet``` works with ```ng-template```
+* in case of ```ng-content``` child component is immediately initialized, when not being in DOM, and it is not being destroyed when removed from DOM. This is by design. The lifecycle of a component is always tied to the place where the component was declared, not to the place where the ```ng-content``` is used. If you want to destroy the child component in this scenario, you have to destroy the parent component, which is not a flexible solution.
+
+[Example](./src/app/templates/ng-content/demo-ng-content.component.ts)
+
+
 

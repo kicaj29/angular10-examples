@@ -9,6 +9,10 @@ import { MyNgIfDirective } from './my-ng-if.directive';
 import { RangeDirective } from './range.directive';
 import { ListComponent } from './list-component/list.component';
 import { UseListComponent } from './list-component/use-list.component';
+import { DemoNgContentComponent } from './ng-content/demo-ng-content.component';
+import { NestedComponent } from './ng-content/app-nested.component';
+import { NgContentComponent } from './ng-content/ng-content.component';
+import { NgTemplateOutletComponent } from './ng-content/ng-template-outlet.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { UseListComponent } from './list-component/use-list.component';
     MyNgIfDirective,
     RangeDirective,
     ListComponent,
-    UseListComponent
+    UseListComponent,
+    DemoNgContentComponent,
+    NestedComponent,
+    NgContentComponent,
+    NgTemplateOutletComponent
   ],
   imports: [
     routing,
