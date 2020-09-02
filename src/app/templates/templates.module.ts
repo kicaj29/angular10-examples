@@ -7,13 +7,17 @@ import { routing } from './templates.routing';
 import { TemplateContainerComponent } from './template-container.component';
 import { MyNgIfDirective } from './my-ng-if.directive';
 import { RangeDirective } from './range.directive';
+import { ListComponent } from './list-component/list.component';
+import { UseListComponent } from './list-component/use-list.component';
 
 @NgModule({
   declarations: [
     TemplatesComponent,
     TemplateContainerComponent,
     MyNgIfDirective,
-    RangeDirective
+    RangeDirective,
+    ListComponent,
+    UseListComponent
   ],
   imports: [
     routing,

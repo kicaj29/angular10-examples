@@ -272,7 +272,7 @@ For example now [graphql.component.graphql](./src/app/graphql/graphql.component.
 Articles:
 * [templates](https://blog.angular-university.io/angular-ng-template-ng-container-ngtemplateoutlet/)
 * [the-power-of-structural-directives (own ngIf)](https://netbasal.com/the-power-of-structural-directives-in-angular-bfe4d8c44fb1)
-* 
+* [Angular Access inner component of ng-template](https://stackoverflow.com/questions/43764536/angular-access-inner-component-of-ng-template)
 
 ## ng-template directive
 The ```<ng-template>``` is an Angular element for rendering HTML. It is never displayed directly. In fact, before rendering the view, Angular replaces the ```<ng-template>``` and its contents with a comment.
@@ -360,7 +360,8 @@ Setting the context does not hide context of the component for the template:
 ```html
 <app-template-container [headerTemplate]="buttons"></app-template-container>
 ```
-[template-container.component.ts](./src/app/templates/template-container.component.ts).
+[template-container.component.ts](./src/app/templates/template-container.component.ts).   
+[list.component.ts](./list.src/app/templates/list-component/list.component.ts) and [use-list.component.ts](./src/app/templates/list-component/use-list.component.ts).
 
 ### implicit reference in structural directive
 [appMyNgIf](./src/app/templates/my-ng-if.directive.ts)   
