@@ -34,7 +34,8 @@ export class ListComponent implements OnInit, AfterViewInit {
       itemsParam.forEach((item: IItem, index) => {
           this.container.createEmbeddedView(
               this.userItem || this.defaultItem,
-              // thx to $implicit variable in html let-jack is set on the value assigned to $implicit!!!
+              // thx to $implicit variable in html let-item is set on the value assigned to $implicit!!!
+              // for counter we can defined another variable and assign value to it using counter as a string, for example: let-x="counter"
               {
                   $implicit: item,
                   counter: index
