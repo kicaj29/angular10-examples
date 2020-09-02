@@ -361,7 +361,7 @@ Setting the context does not hide context of the component for the template:
 <app-template-container [headerTemplate]="buttons"></app-template-container>
 ```
 [template-container.component.ts](./src/app/templates/template-container.component.ts).   
-[list.component.ts](./list.src/app/templates/list-component/list.component.ts) and [use-list.component.ts](./src/app/templates/list-component/use-list.component.ts).
+[list.component.ts](./src/app/templates/list-component/list.component.ts) and [use-list.component.ts](./src/app/templates/list-component/use-list.component.ts).
 
 ### implicit reference in structural directive
 [appMyNgIf](./src/app/templates/my-ng-if.directive.ts)   
