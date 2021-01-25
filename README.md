@@ -420,6 +420,6 @@ Usage:
 
 # Providers
 
-Services that provides themselves using syntax ```providedIn``` and value ```root``` after compilation are places in main js file (for example ```main-es5.77d2a9e8b9a1e649dba2.js```) and are available anywhere in the app but only as singleton.
+Services that provides themselves using syntax ```providedIn``` and value ```root``` after compilation are placed in main js file (for example ```main-es5.77d2a9e8b9a1e649dba2.js```) and are available anywhere in the app but only as singleton.
 
 https://angular.io/guide/providers
