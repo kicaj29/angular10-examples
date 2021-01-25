@@ -24,6 +24,7 @@
     - [implicit reference in structural directive](#implicit-reference-in-structural-directive)
   - [ngContent directive](#ngcontent-directive)
 - [Providers](#providers)
+- [providedIn root](#providedin-root)
 
 
 # Angular elements - custom elements
@@ -420,6 +421,10 @@ Usage:
 
 # Providers
 
-Services that provides themselves using syntax ```providedIn``` and value ```root``` after compilation are placed in main js file (for example ```main-es5.77d2a9e8b9a1e649dba2.js```) and are available anywhere in the app but only as singleton.
+# providedIn root
+
+Services that provides themselves using syntax ```providedIn``` and value ```root``` after compilation are placed in main js file (for example ```main-es5.77d2a9e8b9a1e649dba2.js```) and are available anywhere in the app but only as singleton. Although this service is placed in ```providers``` folder it has nothing to do with [providers.module.ts](./src/app/providers/providers.module.ts) - I think it is even bad practice and such services should be placed in the root folder!
+
+Next thing is that when ```providedIn: 'root'``` is used then such service becomes a singleton! We can see that it is injected in [app.component](./src/app/app.component.ts) and in [templates.component (component in lazy loaded module)](./src/app/templates/templates.component.ts) and the same service instance is used (because its constructor is executed only once)!
 
 https://angular.io/guide/providers

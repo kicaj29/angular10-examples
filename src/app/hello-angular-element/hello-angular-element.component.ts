@@ -12,8 +12,7 @@ export class HelloAngularElementComponent implements OnInit {
   @Input() title;
   @Output() display = new EventEmitter();
 
-  constructor(ts: TimeService) {
-    ts.doNothing();
+  constructor() {
   }
 
   ngOnInit(): void {

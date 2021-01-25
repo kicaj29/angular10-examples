@@ -9,7 +9,7 @@ export class TimeService {
     console.log(`Constructor - current time: ${ (new Date()).getMilliseconds()}`);
   }
 
-  doNothing() {
-    console.log(`doNothing - current time: ${ new Date().getMilliseconds()}`);
+  doNothing(context: string) {
+    console.log(`doNothing [${context}] - current time: ${ new Date().getMilliseconds()}`);
   }
 }

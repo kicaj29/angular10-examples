@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TimeService } from './providers/time.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(ts: TimeService) {
+    ts.doNothing('app module');
+  }
 
   showAngularElement() {
     const hello = document.getElementById('hello');

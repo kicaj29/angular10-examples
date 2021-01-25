@@ -1,4 +1,5 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { TimeService } from '../providers/time.service';
 
 @Component({
   selector: 'app-templates',
@@ -17,7 +18,9 @@ export class TemplatesComponent implements OnInit {
   @ViewChild('userView')
   private userViewTemplate: TemplateRef<any>;
 
-  constructor() { }
+  constructor(ts: TimeService) {
+    ts.doNothing('templates module');
+  }
 
   ctx = {
     name: this.name,
