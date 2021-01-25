@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { TimeService } from '../providers/time.service';
 
 @Component({
   selector: 'app-hello-angular-element',
@@ -11,7 +12,8 @@ export class HelloAngularElementComponent implements OnInit {
   @Input() title;
   @Output() display = new EventEmitter();
 
-  constructor() {
+  constructor(ts: TimeService) {
+    ts.doNothing();
   }
 
   ngOnInit(): void {

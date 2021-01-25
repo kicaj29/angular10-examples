@@ -23,6 +23,7 @@
     - [passing as input](#passing-as-input)
     - [implicit reference in structural directive](#implicit-reference-in-structural-directive)
   - [ngContent directive](#ngcontent-directive)
+- [Providers](#providers)
 
 
 # Angular elements - custom elements
@@ -417,4 +418,8 @@ Usage:
 [Example](./src/app/templates/ng-content/demo-ng-content.component.ts)
 
 
+# Providers
 
+Services that provides themselves using syntax ```providedIn``` and value ```root``` after compilation are places in main js file (for example ```main-es5.77d2a9e8b9a1e649dba2.js```) and are available anywhere in the app but only as singleton.
+
+https://angular.io/guide/providers
