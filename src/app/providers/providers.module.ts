@@ -4,6 +4,8 @@ import { createCustomElement } from '@angular/elements';
 import { ProvidersComponent } from './providers.component';
 import { CommonModule } from '@angular/common';
 import { routing } from './providers.routing';
+import { CustomTimeService } from './custom-time.service';
+import { TimeService } from './time.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,7 @@ import { routing } from './providers.routing';
   ],
   exports: [],
   entryComponents: [],
-  providers: [],
+  providers: [{provide: TimeService, useClass: CustomTimeService}],
 })
 export class ProvidersModule {
 

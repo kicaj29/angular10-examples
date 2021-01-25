@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TimeService } from './time.service';
 
 @Component({
   selector: 'app-providers',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProvidersComponent implements OnInit {
 
-  constructor() { }
+  constructor(ts: TimeService) {
+    ts.doNothing('providers module');
+   }
 
   ngOnInit(): void {
   }
