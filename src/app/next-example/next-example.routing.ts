@@ -12,4 +12,4 @@ export let nextExampleRoutes: Routes = [
     }
   ];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(nextExampleRoutes);
+export const routing: ModuleWithProviders<any> = RouterModule.forChild(nextExampleRoutes);

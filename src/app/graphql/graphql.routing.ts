@@ -12,4 +12,4 @@ export let graphqlRoutes: Routes = [
     }
   ];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(graphqlRoutes);
+export const routing: ModuleWithProviders<any> = RouterModule.forChild(graphqlRoutes);

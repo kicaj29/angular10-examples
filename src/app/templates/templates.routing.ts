@@ -12,4 +12,4 @@ export let templatesRoutes: Routes = [
     }
   ];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(templatesRoutes);
+export const routing: ModuleWithProviders<any> = RouterModule.forChild(templatesRoutes);
