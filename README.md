@@ -23,6 +23,7 @@
     - [passing as input](#passing-as-input)
     - [implicit reference in structural directive](#implicit-reference-in-structural-directive)
   - [ngContent directive](#ngcontent-directive)
+  - [cool-input: ng-content](#cool-input-ng-content)
 - [Providers](#providers)
 - [providedIn root](#providedin-root)
 - [useClass](#useclass)
@@ -278,6 +279,7 @@ Articles:
 * [the-power-of-structural-directives (own ngIf)](https://netbasal.com/the-power-of-structural-directives-in-angular-bfe4d8c44fb1)
 * [Angular Access inner component of ng-template](https://stackoverflow.com/questions/43764536/angular-access-inner-component-of-ng-template)
 * [angulars-content-projection-trap-and-why-you-should-consider-using-template-outlet-instead](https://medium.com/@pietmichal/angulars-content-projection-trap-and-why-you-should-consider-using-template-outlet-instead-cc3c4cad87c9)
+* [A Complete Guide - How To Use ng-content To Improve Component API Design](https://blog.angular-university.io/angular-ng-content/)
 
 ## ng-template directive
 The ```<ng-template>``` is an Angular element for rendering HTML. It is never displayed directly. In fact, before rendering the view, Angular replaces the ```<ng-template>``` and its contents with a comment.
@@ -419,6 +421,15 @@ Usage:
 
 [Example](./src/app/templates/ng-content/demo-ng-content.component.ts)
 
+
+## cool-input: ng-content
+
+[example](./src/app/templates/cool-input)
+
+WARNING: This example is not working because original example was created for Angular 4 and it seems there are some breaking changes in Angular that cause that it is not working in Angular 10.
+
+[original-example](https://github.com/angular-university/au-input)   
+[article](https://blog.angular-university.io/angular-ng-content/)
 
 # Providers
 
