@@ -13,6 +13,7 @@ import { DemoNgContentComponent } from './ng-content/demo-ng-content.component';
 import { NestedComponent } from './ng-content/app-nested.component';
 import { NgContentComponent } from './ng-content/ng-content.component';
 import { NgTemplateOutletComponent } from './ng-content/ng-template-outlet.component';
+import { CoolInputComponent } from './cool-input/cool-input.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { NgTemplateOutletComponent } from './ng-content/ng-template-outlet.compo
     DemoNgContentComponent,
     NestedComponent,
     NgContentComponent,
-    NgTemplateOutletComponent
+    NgTemplateOutletComponent,
+    CoolInputComponent
   ],
   imports: [
     routing,

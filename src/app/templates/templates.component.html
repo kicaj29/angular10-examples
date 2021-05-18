@@ -28,7 +28,12 @@
   <button class="tab-button" (click)="clickMe()">I have my context and still can access my component context</button>
 </ng-template>
 
-<ng-container *ngTemplateOutlet="buttons"></ng-container>
+<div>
+  <div>
+    ng-container with ngTemplateOutlet
+  </div>
+  <ng-container *ngTemplateOutlet="buttons"></ng-container>
+</div>
 <br>
 <ng-container *ngTemplateOutlet="userView; context: ctx"></ng-container>
 <br>
@@ -58,3 +63,12 @@
 <br>
 <br>
 <app-demo-ng-content></app-demo-ng-content>
+<br>
+<br>
+<br>
+<br>
+<div>cool input demo</div>
+<app-cool-input icon="envelope">
+  <input auInput type="email" name="email" placeholder="Email" autocomplete="off"
+         class="some-class" data-stripe="email">
+</app-cool-input>
