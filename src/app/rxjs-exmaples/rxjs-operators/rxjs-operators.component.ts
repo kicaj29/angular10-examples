@@ -43,9 +43,10 @@ export class RxjsOperatorsComponent implements OnInit, AfterViewInit  {
 
     outerObservable.pipe(
       mergeMap(event1 => {
-        console.log(`[mergeMap]: event1`);
+        console.log(`[mergeMap]: outerObservable - event1`);
         return innerObservable.pipe(
           map(event2 => {
+            console.log(`[mergeMap/map]: innerObservable - event2`);
             return event1.target.value + event2.target.value + `; e1: ${event1.data}; e2: ${event2.data}`;
           })
         );
@@ -64,9 +65,10 @@ export class RxjsOperatorsComponent implements OnInit, AfterViewInit  {
     // and outer subscription is executed also 1 time!
     outerObservable.pipe(
       switchMap(event1 => {
-        console.log(`[switchMap]: event1`);
+        console.log(`[switchMap]: outerObservable - event1`);
         return innerObservable.pipe(
           map(event2 => {
+            console.log(`[switchMap/map]: innerObservable - event2`);
             return event1.target.value + event2.target.value + `; e1: ${event1.data}; e2: ${event2.data}`;
           })
         );
