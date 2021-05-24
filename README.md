@@ -28,6 +28,8 @@
   - [providedIn root](#providedin-root)
   - [useClass](#useclass)
 - [RXJS examples](#rxjs-examples)
+  - [subject (HOT) vs observable (COLD)](#subject-hot-vs-observable-cold)
+  - [pipeable and “lettable”, operators](#pipeable-and-lettable-operators)
 
 
 # Angular elements - custom elements
@@ -448,4 +450,45 @@ In case we provide a service in lazy loaded module using ```providers``` ([provi
 
 # RXJS examples
 
-Examples that uses HTTP client can be found in repo [AngularHttpClientWithSampleRestApiServer](https://github.com/kicaj29/AngularHttpClientWithSampleRestApiServer).
+>NOTE: Examples that uses HTTP client can be found in repo [AngularHttpClientWithSampleRestApiServer](https://github.com/kicaj29/AngularHttpClientWithSampleRestApiServer).
+
+## subject (HOT) vs observable (COLD)
+https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339
+
+COLD is when your observable creates the producer:
+```
+// COLD
+var cold = new Observable((observer) => {
+  var producer = new Producer();
+  // have observer listen to producer here
+});
+```
+
+HOT is when your observable closes over the producer:
+```
+// HOT
+var producer = new Producer();
+var hot = new Observable((observer) => {
+  // have observer listen to producer here
+});
+```
+
+https://coryrylan.com/blog/rxjs-observables-versus-subjects   
+
+>"When the data is produced by the Observable itself, we call it a cold Observable. When the data is produced outside the Observable, we call it a hot Observable."
+
+Observable (COLD):
+* Observables by default are “Cold” meaning they are lazy and won’t run any code until there is a subscriber.
+* Cannot access the observer and call .next() outside of the internal implementation of the Observable.
+* if we subscribe three times then three times will be called setTimeout
+* does not have `next` method
+
+Subject (HOT):
+* Subjects, unlike regular Observables, are what we would call “Hot”. A hot Observable is an Observable that can start emitting events before you subscribe. This means you can miss previous events that have already emitted.
+* With the Subject instance, we can immediately trigger events outside of the constructor by calling next().
+* Subject shares work with all subscribers, it means adding more subscribers will not trigger subject execution.
+* has `next` method
+
+## pipeable and “lettable”, operators
+
+https://blog.hackages.io/rxjs-5-5-piping-all-the-things-9d469d1b3f44   
