@@ -52,7 +52,7 @@ export class HotVsColdComponent implements OnInit {
     // const convertedHotObervable = coldObservable.pipe(share());
     // https://rxjs.dev/api/operators/share
 
-    // using share will cause that SUB2 will not be executed, to execute it use shareReplay!
+    // using share will cause that SUB2 (only SUB1 is executed with share()) will not be executed, to execute it use shareReplay!
     // https://rxjs.dev/api/operators/shareReplay
     const convertedHotObservable = coldObservable.pipe(shareReplay());
 

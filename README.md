@@ -30,6 +30,7 @@
 - [RXJS examples](#rxjs-examples)
   - [subject (HOT) vs observable (COLD)](#subject-hot-vs-observable-cold)
   - [pipeable and “lettable”, operators](#pipeable-and-lettable-operators)
+  - [map operators](#map-operators)
 
 
 # Angular elements - custom elements
@@ -492,3 +493,10 @@ Subject (HOT):
 ## pipeable and “lettable”, operators
 
 https://blog.hackages.io/rxjs-5-5-piping-all-the-things-9d469d1b3f44   
+
+## map operators
+* switchMap - cancels the current subscritpion/request and can cause race condition. **Use for get requests or cancelable requests like search.**
+* concatMap - runs subscriptions/requests in order and is less performant. **Use for get, post, put requests when order is important.**
+* mergeMap - runs subscriptions/requests in parallel
+**User for put, post, delete when order is not important**
+* exhaustMap - ignores all subsequent subscriptions/requests until it completes. **Use for login when you do not want more requests unitl this initial one is complete.**
