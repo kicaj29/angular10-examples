@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./providers/providers.module').then(m => m.ProvidersModule)
   },
   {
+    path: 'rxjs-examples',
+    loadChildren: () => import('./rxjs-exmaples/rxjs-examples.module').then(m => m.RxJsExamplesModule)
+  },
+  {
     path: 'next-example',
     loadChildren: () => import('./next-example/next-example.module').then(m => m.NextExampleModule)
   },
