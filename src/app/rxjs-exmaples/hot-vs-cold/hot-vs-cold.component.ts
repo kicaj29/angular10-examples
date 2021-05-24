@@ -104,5 +104,23 @@ export class HotVsColdComponent implements OnInit {
     behaviorSubject.subscribe(v => console.log(v));
     behaviorSubject.next('hello message from BehaviorSubject3 !');
     behaviorSubject.next('hello message from BehaviorSubject4 !');
+
+
+    const o = new Observable(observer => {
+      setTimeout(() => observer.next('hello from Observable! ' + Date.now()), 1000);
+    });
+
+    // every subscribe causes new execution of setTimeout:
+    o.subscribe(v => console.log(v));
+    o.subscribe(v => console.log(v));
+    o.subscribe(v => console.log(v));
+
+    // every subscribe handles the same next call:
+    const s = new Subject();
+    s.next('missed message from Subject');
+    s.subscribe(v => console.log(v));
+    s.subscribe(v => console.log(v));
+    s.subscribe(v => console.log(v));
+    s.next('hello from subject! ' + Date.now());
   }
 }
