@@ -10,9 +10,9 @@ export class CanLoadService implements CanLoad  {
   }
 
   canLoad(route: Route, segments: UrlSegment[]): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-    return this.router.parseUrl('/resolver-guard/ups');
-    //console.log('[CanLoadService]: canLoad');
-    //return true;
+    // return this.router.parseUrl('/resolver-guard/ups');
+    console.log('[CanLoadService]: canLoad');
+    return true;
   }
 
 }
