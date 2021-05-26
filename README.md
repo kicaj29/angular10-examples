@@ -506,3 +506,5 @@ https://blog.hackages.io/rxjs-5-5-piping-all-the-things-9d469d1b3f44
 # Resolver and guards
 https://stackoverflow.com/questions/53346976/resolver-on-lazy-loading-angular   
 https://angular.io/guide/router#lazy-loading-route-configuration   
+
+* somehow freeze the app during loading data by resolver 

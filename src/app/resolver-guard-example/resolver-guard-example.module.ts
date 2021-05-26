@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { routing } from './resolver-guard-example.routing';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerResolverService } from './customer/customer-resolver.service';
+import { CustomerLLResolverService } from './customer-ll/customer-ll-resolver.service';
 
 @NgModule({
   declarations: [
@@ -19,8 +20,9 @@ import { CustomerResolverService } from './customer/customer-resolver.service';
   exports: [],
   entryComponents: [],
   providers: [
-    CustomerResolverService
-  ],
+    CustomerResolverService,
+    CustomerLLResolverService
+  ]
 })
 export class ResolverGuardExampleModule {
 
