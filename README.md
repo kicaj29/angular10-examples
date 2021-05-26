@@ -31,7 +31,7 @@
   - [subject (HOT) vs observable (COLD)](#subject-hot-vs-observable-cold)
   - [pipeable and “lettable”, operators](#pipeable-and-lettable-operators)
   - [map operators](#map-operators)
-- [Resolver and guards](#resolver-and-guards)
+- [Route guards and their order](#route-guards-and-their-order)
 
 
 # Angular elements - custom elements
@@ -503,19 +503,21 @@ https://blog.hackages.io/rxjs-5-5-piping-all-the-things-9d469d1b3f44
 * exhaustMap - ignores all subsequent subscriptions/requests until it completes. **Use for login when you do not want more requests unitl this initial one is complete.**
 
 
-# Resolver and guards
+# Route guards and their order
 https://stackoverflow.com/questions/53346976/resolver-on-lazy-loading-angular   
 https://angular.io/guide/router#lazy-loading-route-configuration   
 https://www.concretepage.com/angular-2/angular-2-4-route-guards-canactivate-and-canactivatechild-example   
 https://timdeschryver.dev/blog/the-difference-between-the-canactivate-and-canactivatechild-guards   
 https://blog.jscrambler.com/how-to-auth-lazily-loaded-routes-in-angular/
 
-* somehow freeze the app during loading data by resolver 
+* CanLoad: executed as first but it is executed only if we load lazy module. This guard is executed before process of loading lazy module will start. For example, this guard can be used to check if a user is authenticated and has permission to a selected module in the system.
 
-Order:
+* CanActivate: executed as second. This guard is executed always when we navigate to selected route. For example, this guard can be used to check more detailed level permission for a user.
 
-* CanLoad (executed only if we load lazy loaded module)
-* CanActivate
-* CanActivateChild (only if we route to some child route)
-* Resolver
+* CanActivateChild: executed as third but only if we navigate to child route. For example, this guard can be used to check more detailed level permission for a user in case of navigating to child routes.   
+      
+  If a “Can*” guard fails, then it can return a route for example to a page with information about fail details.
+
+* Resolver: executed as last and it is executed always. Resolver can be used for normal routes and for routes that load lazy modules. If Resolver fails, then it should navigate to a view that is used for error handling.
+
 

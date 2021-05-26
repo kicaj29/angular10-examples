@@ -7,7 +7,6 @@ import { Customer } from './customer';
 export class CustomerResolverService implements Resolve<Customer> {
 
   constructor(private router: Router) {
-
   }
 
   resolve(
