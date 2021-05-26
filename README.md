@@ -31,6 +31,7 @@
   - [subject (HOT) vs observable (COLD)](#subject-hot-vs-observable-cold)
   - [pipeable and “lettable”, operators](#pipeable-and-lettable-operators)
   - [map operators](#map-operators)
+- [Resolver and guards](#resolver-and-guards)
 
 
 # Angular elements - custom elements
@@ -500,3 +501,6 @@ https://blog.hackages.io/rxjs-5-5-piping-all-the-things-9d469d1b3f44
 * mergeMap - runs subscriptions/requests in parallel
 **User for put, post, delete when order is not important**
 * exhaustMap - ignores all subsequent subscriptions/requests until it completes. **Use for login when you do not want more requests unitl this initial one is complete.**
+
+
+# Resolver and guards

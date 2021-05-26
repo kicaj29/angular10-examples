@@ -25,6 +25,10 @@ const routes: Routes = [
     loadChildren: () => import('./rxjs-exmaples/rxjs-examples.module').then(m => m.RxJsExamplesModule)
   },
   {
+    path: 'resolver-guard',
+    loadChildren: () => import('./resolver-guard-example/resolver-guard-example.module').then(m => m.ResolverGuardExampleModule)
+  },
+  {
     path: 'next-example',
     loadChildren: () => import('./next-example/next-example.module').then(m => m.NextExampleModule)
   },
