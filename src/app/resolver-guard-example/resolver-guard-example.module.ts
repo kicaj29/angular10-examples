@@ -4,10 +4,13 @@ import { createCustomElement } from '@angular/elements';
 import { ResolverGuardExampleComponent } from './resolver-guard-example.component';
 import { CommonModule } from '@angular/common';
 import { routing } from './resolver-guard-example.routing';
+import { CustomerComponent } from './customer/customer.component';
+import { CustomerResolverService } from './customer/customer-resolver.service';
 
 @NgModule({
   declarations: [
-    ResolverGuardExampleComponent
+    ResolverGuardExampleComponent,
+    CustomerComponent
   ],
   imports: [
     routing,
@@ -15,7 +18,9 @@ import { routing } from './resolver-guard-example.routing';
   ],
   exports: [],
   entryComponents: [],
-  providers: [],
+  providers: [
+    CustomerResolverService
+  ],
 })
 export class ResolverGuardExampleModule {
 
