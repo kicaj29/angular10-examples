@@ -10,6 +10,7 @@ import { ResolverGuardExampleComponent } from './resolver-guard-example.componen
 import { CanActivateService } from './guards/can-activate.service';
 import { CanActivateChildService } from './guards/can-activate-child.service';
 import { CanLoadService } from './guards/can-load.service';
+import { UpsComponent } from './ups/ups.component';
 
 export let resolverGuardExampleRoutes: Routes = [
     {
@@ -31,6 +32,10 @@ export let resolverGuardExampleRoutes: Routes = [
       canActivate: [CanActivateService],
       canActivateChild: [CanActivateChildService],
       canLoad: [CanLoadService]
+    },
+    {
+      path: 'ups',
+      component: UpsComponent
     },
   ];
 

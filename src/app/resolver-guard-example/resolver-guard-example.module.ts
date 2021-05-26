@@ -10,11 +10,13 @@ import { CustomerLLResolverService } from './customer-ll/customer-ll-resolver.se
 import { CanActivateService } from './guards/can-activate.service';
 import { CanActivateChildService } from './guards/can-activate-child.service';
 import { CanLoadService } from './guards/can-load.service';
+import { UpsComponent } from './ups/ups.component';
 
 @NgModule({
   declarations: [
     ResolverGuardExampleComponent,
-    CustomerComponent
+    CustomerComponent,
+    UpsComponent
   ],
   imports: [
     routing,
