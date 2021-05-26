@@ -506,5 +506,16 @@ https://blog.hackages.io/rxjs-5-5-piping-all-the-things-9d469d1b3f44
 # Resolver and guards
 https://stackoverflow.com/questions/53346976/resolver-on-lazy-loading-angular   
 https://angular.io/guide/router#lazy-loading-route-configuration   
+https://www.concretepage.com/angular-2/angular-2-4-route-guards-canactivate-and-canactivatechild-example   
+https://timdeschryver.dev/blog/the-difference-between-the-canactivate-and-canactivatechild-guards   
+https://blog.jscrambler.com/how-to-auth-lazily-loaded-routes-in-angular/
 
 * somehow freeze the app during loading data by resolver 
+
+Order:
+
+* CanLoad (executed only if we load lazy loaded module)
+* CanActivate
+* CanActivateChild (only if we route to some child route)
+* Resolver
+

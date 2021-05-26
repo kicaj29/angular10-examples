@@ -7,6 +7,9 @@ import { routing } from './resolver-guard-example.routing';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerResolverService } from './customer/customer-resolver.service';
 import { CustomerLLResolverService } from './customer-ll/customer-ll-resolver.service';
+import { CanActivateService } from './guards/can-activate.service';
+import { CanActivateChildService } from './guards/can-activate-child.service';
+import { CanLoadService } from './guards/can-load.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { CustomerLLResolverService } from './customer-ll/customer-ll-resolver.se
   entryComponents: [],
   providers: [
     CustomerResolverService,
-    CustomerLLResolverService
+    CustomerLLResolverService,
+    CanActivateService,
+    CanActivateChildService,
+    CanLoadService
   ]
 })
 export class ResolverGuardExampleModule {
