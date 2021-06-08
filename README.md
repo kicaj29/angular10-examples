@@ -32,6 +32,7 @@
   - [pipeable and “lettable”, operators](#pipeable-and-lettable-operators)
   - [map operators](#map-operators)
 - [Route guards and their order](#route-guards-and-their-order)
+- [Observable vs Promise](#observable-vs-promise)
 
 
 # Angular elements - custom elements
@@ -520,4 +521,23 @@ https://blog.jscrambler.com/how-to-auth-lazily-loaded-routes-in-angular/
 
 * Resolver: executed as last and it is executed always. Resolver can be used for normal routes and for routes that load lazy modules. If Resolver fails, then it should navigate to a view that is used for error handling.
 
+# Observable vs Promise
+
+https://netbasal.com/angular-stop-using-observable-when-you-should-use-a-promise-8da0788a8d2
+
+* First, Promises are eager and are executed immediately. Observables are not eager and are only executed when subscribed to.
+* Second, Promises are asynchronous. Observables can be either synchronous or asynchronous.
+* Third, Promises are expected to return only a single value (like a function). Observables can return zero, one or more (infinitely) values.
+
+Promise:
+* Promise is executed together with his constructor. There is no need to call 'then' to start execution of promise (eager loading).
+* There is no possibility to cancel promise.   NOTE: because of this we have to check if then is executed for still valid component (e.g.check if the component is already destroy).
+* If we call multiple times ‘then’ on the same instance of promise the promise only return value, content of promise is executed only one time!
+* Handling errors: use `catch` method. Handled error is passed as success to next `then`s.
+
+Observable:
+* Observable by default is executed only when we call subscribe at least one time
+* There is possibility to cancel observable but from unknow reasones it does not work in my example
+* If we call observale multple times it is executed every time from scratch
+* Handling errors: use `catchError` operator in `pipe` or handle it in `subscribe`. In case of using `catchError` handled error is passed to subscribe as success value!
 
