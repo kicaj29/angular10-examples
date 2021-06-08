@@ -536,8 +536,8 @@ Promise:
 * Handling errors: use `catch` method. Handled error is passed as success to next `then`s.
 
 Observable:
-* Observable by default is executed only when we call subscribe at least one time
-* There is possibility to cancel observable but from unknow reasones it does not work in my example
+* Observable by default is executed only when we call subscribe at least one time.
+* There is possibility to cancel observable (by calling `unsubscribe`).
 * If we call observale multple times it is executed every time from scratch
 * Handling errors: use `catchError` operator in `pipe` or handle it in `subscribe`. In case of using `catchError` handled error is passed to subscribe as success value!
 
