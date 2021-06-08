@@ -531,7 +531,7 @@ https://netbasal.com/angular-stop-using-observable-when-you-should-use-a-promise
 
 Promise:
 * Promise is executed together with his constructor. There is no need to call 'then' to start execution of promise (eager loading).
-* There is no possibility to cancel promise.   NOTE: because of this we have to check if then is executed for still valid component (e.g.check if the component is already destroy).
+* There is no possibility to cancel promise.
 * If we call multiple times ‘then’ on the same instance of promise the promise only return value, content of promise is executed only one time!
 * Handling errors: use `catch` method. Handled error is passed as success to next `then`s.
 
