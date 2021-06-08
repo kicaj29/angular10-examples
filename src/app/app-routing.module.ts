@@ -29,6 +29,10 @@ const routes: Routes = [
     loadChildren: () => import('./resolver-guard-example/resolver-guard-example.module').then(m => m.ResolverGuardExampleModule)
   },
   {
+    path: 'observable-vs-promise',
+    loadChildren: () => import('./observable-vs-promise/observable-vs-promise.module').then(m => m.ObservableVsPromiseModule)
+  },
+  {
     path: 'next-example',
     loadChildren: () => import('./next-example/next-example.module').then(m => m.NextExampleModule)
   },
