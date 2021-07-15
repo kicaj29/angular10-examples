@@ -33,6 +33,10 @@ const routes: Routes = [
     loadChildren: () => import('./observable-vs-promise/observable-vs-promise.module').then(m => m.ObservableVsPromiseModule)
   },
   {
+    path: 'window-inner-size',
+    loadChildren: () => import('./window-inner-size/window-inner-size.module').then(m => m.WindowInnerSizeModule)
+  },
+  {
     path: 'next-example',
     loadChildren: () => import('./next-example/next-example.module').then(m => m.NextExampleModule)
   },
